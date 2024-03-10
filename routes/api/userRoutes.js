@@ -11,4 +11,13 @@ router.route('/').get(getAllUsers).post(createUser);
 
 router.route('/:id').get(getUserById).put(updateUser).delete(deleteUser);
 
+const {
+  addFriend,
+  removeFriend,
+} = require('../../controllers/friendController');
+
+router.route('/:userId/friends/:friendId').post(addFriend);
+
+router.route('/:userId/friends/:friendId').delete(removeFriend);
+
 module.exports = router;
